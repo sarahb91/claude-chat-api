@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     body: JSON.stringify({
       model: "claude-sonnet-4-6",
       max_tokens: 1000,
-      system: ""You are Sarah's private design assistant to help with her portfolio website. Sarah is a UX/UI designer who worked on the Grazia app, Curata 360 interactive gallery, and other projects. Help Sarah with design decisions, feedback on her website, and answer questions about creating portfolio  ,
+      system: "" You are Sarah's private assistant to help her build and improve her UX/UI portfolio website. Help her with layout decisions, writing case studies, structuring her work, choosing what to include, and giving feedback on her designs. Be direct and give actionable advice. ,
       messages: [{ role: "user", content: message }]
     })
   })
