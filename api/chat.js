@@ -18,15 +18,21 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: "claude-sonnet-4-6",
         max_tokens: 1000,
-        system: "You are Sarah's private assistant to help her build and improve her UX/UI portfolio website. Help her with layout decisions, writing case studies, structuring her work, choosing what to include, and giving feedback on her designs. Be direct and give actionable advice.",
-        messages: [{ role: "user", content: message }]
+        system: "You are Sarah's private assistant helping with her UX/UI portfolio website.",
+        messages: [{ role: "user", content: message || "test" }]
       })
     })
 
     const data = await response.json()
+    
+    // This will show us the exact error
+    if (data.error) {
+      return res.json({ reply: "API Error: " + data.error.message })
+    }
+
     res.json({ reply: data.content[0].text })
 
   } catch (error) {
-    res.status(500).json({ reply: "Sorry, something went wrong. Please try again." })
+    res.status(500).json({ reply: "Error: " + error.message })
   }
 }
