@@ -16,7 +16,7 @@ export default async function handler(req, res) {
         "anthropic-version": "2023-06-01"
       },
       body: JSON.stringify({
-        model: "claude-sonnet-4-6",
+        model: "claude-sonnet-4-5",
         max_tokens: 1000,
         system: "You are Sarah's private assistant helping with her UX/UI portfolio website.",
         messages: [{ role: "user", content: message || "test" }]
